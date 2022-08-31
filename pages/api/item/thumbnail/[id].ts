@@ -8,7 +8,7 @@ export default async function handler(
 ) {
   const { id } = req.query;
   //console.log(id);
-  const url = `${eagleEndpoint}/api/item/thumbnail?id=${id}`;
+  const url = `${eagleEndpoint}/item/thumbnail?id=${id}`;
   const result = await fetch(url).then((response) => response.json());
   const path = decodeURI(result.data);
   const ext = path.substring(path.length - 3);

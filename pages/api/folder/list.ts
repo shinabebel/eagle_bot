@@ -9,7 +9,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) {
-  const url = `${eagleEndpoint}/api/folder/list`;
+  const url = `${eagleEndpoint}/folder/list`;
   const result = await fetch(url).then((response) => response.json());
   console.log(result);
   if (result.status === 'success') {

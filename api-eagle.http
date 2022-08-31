@@ -1,0 +1,23 @@
+@api = http://127.0.0.1:41595
+@id = L7AHIGF542OO2
+
+### API
+GET {{api}}
+
+### APPLICATION
+GET {{api}}/api/application/info
+
+### FOLDER
+GET {{api}}/api/folder/list
+
+### ITEM
+GET {{api}}/api/item/info?id={{id}}
+###
+GET {{api}}/api/item/thumbnail?id={{id}}
+###
+GET {{api}}/api/item/list
+
+### LIBRARY
+GET {{api}}/api/library/info
+###
+GET {{api}}/api/library/history

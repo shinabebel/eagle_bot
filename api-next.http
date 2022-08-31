@@ -1,0 +1,11 @@
+@api = http://127.0.0.1:3000/api
+@id = L7AHIGF542OO2
+
+### EAGLE
+GET {{api}}/folder/list
+
+###
+GET {{api}}/item/list
+
+###
+GET {{api}}/item/thumbnail/{{id}}

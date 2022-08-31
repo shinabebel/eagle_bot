@@ -1,12 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { eagleEndpoint } from '../../api';
 
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse<any>
 ) {
     if (req.method === 'POST') {
-        const url = `${eagleEndpoint}/item/update`;
+        const url = `${process.env.EAGLE_ENDPOINT}/item/update`;
         const result = await fetch(url, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

@@ -1,15 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { eagleEndpoint } from '../../api';
-
-type Data = {
-  name: string;
-};
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) {
-  const url = `${eagleEndpoint}/folder/list`;
+  const url = `${process.env.EAGLE_ENDPOINT}/folder/list`;
   const result = await fetch(url).then((response) => response.json());
   console.log(result);
   if (result.status === 'success') {

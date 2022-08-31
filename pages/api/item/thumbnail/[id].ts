@@ -1,6 +1,5 @@
 import { createReadStream } from 'fs';
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { eagleEndpoint } from '../../../api';
 
 export default async function handler(
   req: NextApiRequest,
@@ -8,7 +7,7 @@ export default async function handler(
 ) {
   const { id } = req.query;
   //console.log(id);
-  const url = `${eagleEndpoint}/item/thumbnail?id=${id}`;
+  const url = `${process.env.EAGLE_ENDPOINT}/item/thumbnail?id=${id}`;
   const result = await fetch(url).then((response) => response.json());
   const path = decodeURI(result.data);
   const ext = path.substring(path.length - 3);

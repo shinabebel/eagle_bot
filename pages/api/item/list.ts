@@ -1,12 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import { eagleEndpoint } from '../../api';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) {
   const { limit, orderBy, tags, folders } = req.query;
-  let url = `${eagleEndpoint}/item/list?`;
+  let url = `${process.env.EAGLE_ENDPOINT}/item/list?`;
   if (limit !== undefined) url += `limit=${limit}&`;
   if (orderBy !== undefined) url += `orderBy=${orderBy}&`;
   if (tags !== undefined) url += `tags=${tags}&`;

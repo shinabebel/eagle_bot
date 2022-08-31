@@ -1,11 +1,12 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
+import { eagleEndpoint } from '../../api';
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<any>
 ) {
   const { limit, orderBy, tags, folders } = req.query;
-  let url = 'http://192.168.234.14:41595/api/item/list?';
+  let url = `${eagleEndpoint}/api/item/list?`;
   if (limit !== undefined) url += `limit=${limit}&`;
   if (orderBy !== undefined) url += `orderBy=${orderBy}&`;
   if (tags !== undefined) url += `tags=${tags}&`;
@@ -15,6 +16,6 @@ export default async function handler(
   if (result.status === 'success') {
     res.status(200).json(result.data);
   } else {
-    res.status(500);
+    res.status(500).json(result.data);
   }
 }

@@ -11,7 +11,7 @@ export default async function handler(
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(req.body),
         }).then((response) => response.json());
-        console.log(result);
+        //console.log(result);
         res.status(200).json(result.data);
     } else {
         res.status(500).json('GET method is not available.');
